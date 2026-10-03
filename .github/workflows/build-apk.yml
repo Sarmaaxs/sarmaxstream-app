@@ -31,7 +31,11 @@ jobs:
         run: flutter pub get
 
       - name: Analyze
+<<<<<<< HEAD
         run: flutter analyze
+=======
+        run: flutter analyze --no-fatal-infos
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 
       - name: Test
         run: flutter test

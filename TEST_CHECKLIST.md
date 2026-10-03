@@ -57,6 +57,7 @@ Use a real Android phone with a network connection. The checklist is for the Sta
 - API base URL:
 - Passed checks:
 - Failed checks and logs:
+<<<<<<< HEAD
 
 ## Movies, TV and YouTube
 
@@ -68,3 +69,5 @@ Use a real Android phone with a network connection. The checklist is for the Sta
 - [ ] Back button on any non-Home tab returns to Home; on Home it leaves the app.
 - [ ] Airplane mode: each screen shows "Try again" instead of crashing; Try again works when back online.
 - [ ] Logo on the launch screen, Settings and the app icon is the sarmaxstream wordmark.
+=======
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e

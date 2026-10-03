@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../../../core/theme/app_theme.dart';
+<<<<<<< HEAD
 import '../../../core/widgets/common.dart';
+=======
+import '../../../core/theme/brand_mark.dart';
+import '../../settings/presentation/settings_page.dart';
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 import '../application/music_controller.dart';
 import '../domain/track.dart';
 
@@ -16,10 +21,16 @@ class MusicHomePage extends ConsumerStatefulWidget {
   ConsumerState<MusicHomePage> createState() => _MusicHomePageState();
 }
 
+<<<<<<< HEAD
 /// The Music tab. The app shell provides the Scaffold, the mini player and
 /// the bottom navigation.
 class _MusicHomePageState extends ConsumerState<MusicHomePage> {
   final _search = TextEditingController();
+=======
+class _MusicHomePageState extends ConsumerState<MusicHomePage> {
+  final _search = TextEditingController();
+  int _tab = 0;
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 
   @override
   void dispose() {
@@ -27,13 +38,61 @@ class _MusicHomePageState extends ConsumerState<MusicHomePage> {
     super.dispose();
   }
 
+<<<<<<< HEAD
+=======
+  void _openSettings() => Navigator.of(context)
+      .push(MaterialPageRoute<void>(builder: (_) => const SettingsPage()));
+
+  Widget _navigationBar() => NavigationBar(
+          selectedIndex: _tab,
+          onDestinationSelected: (i) => setState(() => _tab = i),
+          destinations: const [
+            NavigationDestination(
+                icon: Icon(Icons.home_outlined),
+                selectedIcon: Icon(Icons.home),
+                label: 'Home'),
+            NavigationDestination(
+                icon: Icon(Icons.library_music_outlined),
+                selectedIcon: Icon(Icons.library_music),
+                label: 'Your Library')
+          ]);
+
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
   @override
   Widget build(BuildContext context) {
     final c = ref.watch(musicControllerProvider);
     return ListenableBuilder(
         listenable: c,
+<<<<<<< HEAD
         builder: (context, _) =>
             _MusicHomeContent(search: _search, controller: c));
+=======
+        builder: (context, _) {
+          final body = _tab == 1
+              ? const _LibraryPlaceholder()
+              : _MusicHomeContent(search: _search, controller: c);
+          return Scaffold(
+            body: SafeArea(child: body),
+            bottomNavigationBar: c.current == null
+                ? _navigationBar()
+                : Column(mainAxisSize: MainAxisSize.min, children: [
+                    if (c.youtubeOnly != null)
+                      YoutubeDock(
+                          key: const ValueKey('yt-dock'), track: c.youtubeOnly!),
+                    MiniPlayer(controller: c),
+                    _navigationBar(),
+                  ]),
+            floatingActionButton: _tab == 0
+                ? null
+                : FloatingActionButton.small(
+                    tooltip: 'Settings',
+                    onPressed: _openSettings,
+                    backgroundColor: AppTheme.lime,
+                    foregroundColor: Colors.black,
+                    child: const Icon(Icons.settings)),
+          );
+        });
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
   }
 }
 
@@ -53,7 +112,33 @@ class _MusicHomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => CustomScrollView(slivers: [
+<<<<<<< HEAD
         const SliverToBoxAdapter(child: AppHeader()),
+=======
+        SliverPadding(
+            padding: const EdgeInsets.fromLTRB(20, 18, 20, 0),
+            sliver: SliverToBoxAdapter(
+                child: Row(children: [
+              const BrandMark(size: 44),
+              const SizedBox(width: 12),
+              const Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Text('SARMAXSTREAM',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900, letterSpacing: 1.4)),
+                    Text('Good evening',
+                        style: TextStyle(color: Colors.white54, fontSize: 12))
+                  ])),
+              IconButton(
+                  tooltip: 'Settings',
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                          builder: (_) => const SettingsPage())),
+                  icon: const Icon(Icons.settings_outlined))
+            ]))),
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
         SliverPadding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
             sliver: SliverToBoxAdapter(
@@ -121,6 +206,37 @@ class _MusicHomeContent extends StatelessWidget {
       ]);
 }
 
+<<<<<<< HEAD
+=======
+class _LibraryPlaceholder extends StatelessWidget {
+  const _LibraryPlaceholder();
+  @override
+  Widget build(BuildContext context) => Center(
+      child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            const BrandMark(size: 58),
+            const SizedBox(height: 18),
+            Text('Your Library',
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(fontWeight: FontWeight.w800)),
+            const SizedBox(height: 8),
+            const Text('Your liked songs and playlists will appear here.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white54)),
+            const SizedBox(height: 20),
+            FilledButton.icon(
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text('Playlist tools are coming in Stage 3.'))),
+                icon: const Icon(Icons.add),
+                label: const Text('Create playlist'))
+          ])));
+}
+
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 class _EmptyState extends StatelessWidget {
   const _EmptyState({required this.hasQuery});
   final bool hasQuery;

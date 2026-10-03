@@ -27,7 +27,16 @@ class _SettingsPageState extends State<SettingsPage> {
         body: ListView(
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 40),
           children: [
+<<<<<<< HEAD
             const Center(child: Wordmark(fontSize: 34)),
+=======
+            const Center(child: BrandMark(size: 58)),
+            const SizedBox(height: 12),
+            const Center(
+                child: Text('SARMAXSTREAM',
+                    style: TextStyle(
+                        letterSpacing: 2.2, fontWeight: FontWeight.w900))),
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
             const SizedBox(height: 28),
             _Section(title: 'Playback', children: [
               _SettingSwitch(
@@ -65,7 +74,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   contentPadding: EdgeInsets.zero,
                   leading: const Icon(Icons.info_outline, color: AppTheme.lime),
                   title: const Text('SarmaxStream'),
+<<<<<<< HEAD
                   subtitle: const Text('Movies · TV · YouTube · Music'),
+=======
+                  subtitle: const Text('Stage 1 · Music'),
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
                   trailing: const Icon(Icons.chevron_right)),
               ListTile(
                   contentPadding: EdgeInsets.zero,
@@ -74,12 +87,15 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: const Text('Privacy'),
                   subtitle: const Text('Your API keys stay on the server'),
                   trailing: const Icon(Icons.chevron_right)),
+<<<<<<< HEAD
               const ListTile(
                   contentPadding: EdgeInsets.zero,
                   leading: Icon(Icons.movie_filter_outlined, color: AppTheme.lime),
                   title: Text('Movie & TV data'),
                   subtitle: Text(
                       'This product uses the TMDB API but is not endorsed or certified by TMDB.')),
+=======
+>>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
             ]),
           ],
         ),
