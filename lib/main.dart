@@ -13,10 +13,7 @@ import 'core/theme/brand_mark.dart';
 import 'features/music/application/music_controller.dart';
 import 'features/music/data/music_api.dart';
 import 'features/music/data/music_audio_handler.dart';
-<<<<<<< HEAD
 import 'app/app_shell.dart';
-=======
->>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 import 'features/music/presentation/music_home_page.dart';
 
 class StartupSnapshot {
@@ -130,16 +127,8 @@ class StartupLoadingScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-<<<<<<< HEAD
                 Wordmark(fontSize: 38),
                 SizedBox(height: 22),
-=======
-                BrandMark(size: 64),
-                SizedBox(height: 20),
-                Text('SarmaxStream',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
-                SizedBox(height: 18),
->>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
                 CircularProgressIndicator(),
               ],
             ),
@@ -195,9 +184,5 @@ class SarmaxApp extends StatelessWidget {
       title: 'SarmaxStream',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark(),
-<<<<<<< HEAD
       home: const AppShell());
-=======
-      home: const MusicHomePage());
->>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 }
