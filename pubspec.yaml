@@ -1,8 +1,8 @@
 name: sarmaxstream
 <<<<<<< HEAD
-description: SarmaxStream: movies, TV, YouTube and music in one native app.
+description: SarmaxStream - movies, TV, YouTube and music in one native app.
 =======
-description: Native Flutter music and media app for SarmaxStream.
+description: SarmaxStream - movies, TV, YouTube and music in one native app.
 >>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 publish_to: 'none'
 version: 1.0.0+1
