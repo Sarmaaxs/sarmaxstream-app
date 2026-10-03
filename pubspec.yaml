@@ -1,9 +1,5 @@
 name: sarmaxstream
-<<<<<<< HEAD
 description: SarmaxStream - movies, TV, YouTube and music in one native app.
-=======
-description: SarmaxStream - movies, TV, YouTube and music in one native app.
->>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -30,8 +26,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-<<<<<<< HEAD
   assets:
     - assets/brand/logo.png
-=======
->>>>>>> 559808d1ebbae9b95dcf20f0dd4adef721fc732e
